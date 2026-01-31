@@ -1,0 +1,47 @@
+{
+  "analysis_type": "lineament_fracture_analysis",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:04:04.237695",
+  "confidence_score": 0.63,
+  "severity_level": "moderate",
+  "key_findings": {
+    "lineament_density_km_per_km2": {
+      "value": 0.7162,
+      "uncertainty": 0.25,
+      "lower_bound": 0.4662,
+      "upper_bound": 0.9662,
+      "confidence_level": 0.68,
+      "unit": "km/km\u00b2"
+    },
+    "fracture_class": "sheet_jointing",
+    "dominant_strike": "N-S",
+    "dominant_dip_degrees": 65,
+    "transmissivity_mean_m2day": 37.3,
+    "transmissivity_range_m2day": [
+      6.8,
+      67.9
+    ],
+    "yield_potential": "low",
+    "yield_range_lps": [
+      0.74,
+      4.43
+    ],
+    "tectonic_region": "deccan",
+    "fracture_connectivity": "low",
+    "aquifer_suitability": "moderate"
+  },
+  "recommendations": [
+    "Low fracture density: Limited groundwater availability",
+    "Require careful site selection; test drilling strongly recommended",
+    "Drill orientation: perpendicular to dominant lineaments for maximum fracture intersection"
+  ],
+  "methodology": "DEM-based edge detection (Sobel + Laplacian) + GSI fracture pattern classification",
+  "data_sources": [
+    "USGS SRTM DEM",
+    "Bhuvan Lineament Maps",
+    "GSI Structural Geology"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "analysis_type": "extraction_pressure_analysis",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:03:43.177263",
+  "confidence_score": 0.7,
+  "severity_level": "favorable",
+  "key_findings": {
+    "building_units": 1,
+    "building_type": "school",
+    "per_capita_demand_lpd": 100.0,
+    "occupancy_per_unit": 3.5,
+    "daily_requirement_per_unit_liters": 378.0,
+    "total_daily_requirement_mld": 0.0,
+    "total_annual_requirement_mld": 0.0,
+    "available_groundwater_mld_per_year": 1.02,
+    "groundwater_exploitation_index": {
+      "value": 0.0001,
+      "uncertainty": 0.12,
+      "lower_bound": -0.1199,
+      "upper_bound": 0.1201,
+      "confidence_level": 0.68,
+      "unit": "ratio"
+    },
+    "safe_extraction_rate_mld": 0.71,
+    "extraction_stress_level": 0.0,
+    "stress_category": "Very Low - Excellent Capacity",
+    "annual_rainfall_mm": 2270.0,
+    "analysis_area_km2": 2.0,
+    "extraction_efficiency": 0.7,
+    "safe_daily_allocation_liters_per_unit": 1950.0
+  },
+  "recommendations": [
+    "Excellent: Extraction is sustainable (0.00 stress level)",
+    "Groundwater resource can support current demand reliably",
+    "Still recommended: Rainwater harvesting for future resilience (target: 20%)",
+    "Per-unit water use: 0 L/day - efficient consumption pattern"
+  ],
+  "methodology": "Real demand per IS 1172:2019 with sustainable yield and GWE Index analysis",
+  "data_sources": [
+    "IS 1172:2019 Standards",
+    "Rainfall Data",
+    "Geological Recharge Rates",
+    "Building Specs"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "analysis_type": "soil_analysis",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:03:25.821382",
+  "confidence_score": 0.6956490103870364,
+  "severity_level": "moderate",
+  "key_findings": {
+    "dominant_soil_type": "loam",
+    "soil_description": "Well-balanced texture",
+    "infiltration_rate_cm_hr": {
+      "value": 5,
+      "uncertainty": 2.5,
+      "lower_bound": 2.5,
+      "upper_bound": 7.5,
+      "confidence_level": 0.68,
+      "unit": "cm/hour"
+    },
+    "saturated_hydraulic_conductivity_cm_day": 48,
+    "porosity_fraction": 0.43,
+    "field_capacity_fraction": 0.24,
+    "available_water_capacity": 0.14,
+    "permeability_class": "moderate",
+    "contaminant_vulnerability": "medium",
+    "estimated_saturated_depth_m": 30
+  },
+  "recommendations": [
+    "Moderate infiltration - use lined recharge structures",
+    "Low contamination risk - natural soil protection excellent",
+    "Low water retention - irrigate frequently or amend soil"
+  ],
+  "methodology": "USDA soil classification with hydraulic property pedotransfer functions",
+  "data_sources": [
+    "ISRIC Soil Database",
+    "Regional Surveys",
+    "Pedotransfer Functions",
+    "Measured Data"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "analysis_type": "drainage_density_analysis",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:03:41.584396",
+  "confidence_score": 0.77,
+  "severity_level": "critical",
+  "key_findings": {
+    "drainage_density_km_per_km2": {
+      "value": 9.2267,
+      "uncertainty": 0.8,
+      "lower_bound": 8.4267,
+      "upper_bound": 10.0267,
+      "confidence_level": 0.68,
+      "unit": "km/km\u00b2"
+    },
+    "drainage_density_interpretation": "High (dense network)",
+    "runoff_coefficient": 0.85,
+    "infiltration_index": 0.06,
+    "surface_water_bodies_count": 0,
+    "stream_frequency_per_km2": 4.61,
+    "groundwater_recharge_index": 0.03,
+    "recharge_category": "Poor",
+    "annual_rainfall_mm": 2270,
+    "analysis_radius_km": 2.0,
+    "dem_relief_m": 175.0,
+    "dem_slope_mean_degrees": 46.46
+  },
+  "recommendations": [
+    "Dense drainage network detected - high surface runoff potential",
+    "Implement stormwater management structures",
+    "Poor infiltration - use lined recharge systems",
+    "Low recharge - maximize water retention and minimize losses",
+    "High runoff coefficient - implement detention basins and infiltration systems"
+  ],
+  "methodology": "Real DEM-based drainage computation with D8 flow routing and rainfall-infiltration modeling",
+  "data_sources": [
+    "Open-Elevation API",
+    "USGS SRTM",
+    "IMD Rainfall Data",
+    "Hydrological Modeling"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "analysis_type": "lithology_analysis",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:03:43.179413",
+  "confidence_score": 0.7,
+  "severity_level": "high",
+  "key_findings": {
+    "target_depth_m": 100,
+    "dominant_lithology": "basalt",
+    "formation": "Deccan_Traps_Lower",
+    "age": "Cretaceous",
+    "aquifer_type": "fractured_confined",
+    "yield_potential": "variable_low_to_moderate",
+    "porosity_mean": {
+      "value": 0.1,
+      "uncertainty": 0.15,
+      "lower_bound": -0.05,
+      "upper_bound": 0.25,
+      "confidence_level": 0.68,
+      "unit": "fraction"
+    },
+    "porosity_range": [
+      0.02,
+      0.2
+    ],
+    "porosity_uncertainty_std": 0.06,
+    "transmissivity_mean_m2day": 40,
+    "transmissivity_range_m2day": [
+      10,
+      100
+    ],
+    "storage_coefficient_mean": 0.003,
+    "storage_coefficient_range": [
+      0.001,
+      0.01
+    ],
+    "bedrock_depth_median_m": 8,
+    "bedrock_depth_range_m": [
+      5,
+      25
+    ],
+    "full_stratigraphy": [
+      {
+        "depth": [
+          0,
+          4
+        ],
+        "lithology": "alluvium",
+        "formation": "Coastal_Quaternary",
+        "age": "Holocene",
+        "note": "Recent coastal alluvium"
+      },
+      {
+        "depth": [
+          4,
+          20
+        ],
+        "lithology": "basalt",
+        "formation": "Deccan_Traps_Upper",
+        "age": "Paleocene",
+        "note": "Highly fractured, coastal weathered"
+      },
+      {
+        "depth": [
+          20,
+          80
+        ],
+        "lithology": "basalt",
+        "formation": "Deccan_Traps_Middle",
+        "age": "Cretaceous_Paleocene",
+        "note": "Primary aquifer zone"
+      },
+      {
+        "depth": [
+          80,
+          200
+        ],
+        "lithology": "basalt",
+        "formation": "Deccan_Traps_Lower",
+        "age": "Cretaceous",
+        "note": "Deep confined aquifer"
+      }
+    ]
+  },
+  "recommendations": [
+    "Confined aquifer - bore through confining layer + 10-20m into aquifer",
+    "Expect artesian pressure - use valves to control flow",
+    "MODERATE YIELD: Suitable for farming/small community (1-5 LPS)",
+    "Plan for two bores minimum for redundancy",
+    "Moderate transmissivity (40 m\u00b2/day)",
+    "Standard monitoring well spacing: 1-2km",
+    "Basalt aquifer - target secondary porosity (fractures, vesicles)",
+    "Best yields in fractured/weathered zones (5-50 LPS possible)"
+  ],
+  "methodology": "GSI Geological Formation Maps with borehole compilation uncertainty quantification",
+  "data_sources": [
+    "GSI Formation Maps",
+    "CGWB Borehole Data",
+    "USGS Water Supply Papers"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "analysis_type": "slope_detection",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:03:17.794196",
+  "confidence_score": 0.84,
+  "severity_level": "critical",
+  "key_findings": {
+    "surface_slope_degrees": {
+      "value": 46.4626,
+      "uncertainty": 3.0,
+      "lower_bound": 43.4626,
+      "upper_bound": 49.4626,
+      "confidence_level": 0.68,
+      "unit": "degrees"
+    },
+    "subsurface_slope_degrees": {
+      "value": 46.4626,
+      "uncertainty": 4.5,
+      "lower_bound": 41.9626,
+      "upper_bound": 50.9626,
+      "confidence_level": 0.68,
+      "unit": "degrees"
+    },
+    "slope_curvature": 0.3359,
+    "recharge_potential_index": 0.079,
+    "slope_classification": "very_steep",
+    "groundwater_flow_azimuth": 342.0,
+    "groundwater_flow_dip": 83.0,
+    "fracture_likelihood": 0.699,
+    "fault_proximity_risk": 0,
+    "analysis_radius_km": 2.0,
+    "dem_min_elevation_m": -3.0,
+    "dem_max_elevation_m": 172.0,
+    "dem_relief_m": 175.0,
+    "regional_tectonic_setting": "Western Ghats North"
+  },
+  "recommendations": [
+    "Limited recharge potential - consider rainwater harvesting systems",
+    "High fracture likelihood detected - boring through fractured zone recommended",
+    "Consider deeper wells (>100m) to access confined aquifers",
+    "Steep terrain - ensure proper drainage around facilities"
+  ],
+  "methodology": "Real DEM-based slope analysis with D8 flow routing and geological subsurface estimation",
+  "data_sources": [
+    "Open-Elevation API",
+    "USGS SRTM",
+    "GSI Geological Data",
+    "Satellite InSAR"
+  ]
+}

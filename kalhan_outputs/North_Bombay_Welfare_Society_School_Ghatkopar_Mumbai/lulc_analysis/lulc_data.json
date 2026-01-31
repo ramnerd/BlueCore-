@@ -1,0 +1,51 @@
+{
+  "analysis_type": "lulc_analysis",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:03:43.184037",
+  "confidence_score": 0.85,
+  "severity_level": "unfavorable",
+  "key_findings": {
+    "dominant_lulc_class": "natural_vegetation",
+    "urban_fraction": {
+      "value": 0.15,
+      "uncertainty": 0.08,
+      "lower_bound": 0.07,
+      "upper_bound": 0.23,
+      "confidence_level": 0.68,
+      "unit": "fraction"
+    },
+    "dense_urban_fraction": 0.05,
+    "moderate_urban_fraction": 0.05,
+    "agricultural_fraction": 0.2,
+    "vegetation_fraction": 0.7,
+    "water_bodies_fraction": 0.03,
+    "barren_fraction": 0,
+    "urban_development_intensity": 0.95,
+    "impervious_surface_fraction": 0.137,
+    "vegetation_fraction_total": 0.775,
+    "infiltration_reduction_factor": 0.21,
+    "composite_runoff_coefficient": 0.28,
+    "groundwater_contamination_risk": "medium",
+    "recharge_potential_rating": "good_to_excellent",
+    "analysis_radius_km": 2.0
+  },
+  "recommendations": [
+    "High urban development intensity - significant groundwater impact expected",
+    "Implement stormwater management and infiltration systems",
+    "Monitor groundwater quality quarterly for contamination indicators",
+    "Good natural infiltration - minimize paving and impervious cover",
+    "Moderate contamination risk - implement water quality monitoring",
+    "Maintain 30m setback from potential contamination sources",
+    "Natural vegetation area: Preserve existing land cover for groundwater protection"
+  ],
+  "methodology": "Satellite-derived LULC classification with hydrogeological impact assessment",
+  "data_sources": [
+    "Sentinel-2 Satellite",
+    "Landsat-8",
+    "High-Resolution Imagery",
+    "OpenStreetMap"
+  ]
+}

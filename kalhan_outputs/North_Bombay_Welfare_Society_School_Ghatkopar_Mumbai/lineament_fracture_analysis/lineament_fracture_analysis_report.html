@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalhan Report - Lineament Fracture Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+        
+        .location-info {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin: 10px 0;
+        }
+        
+        .severity-badge {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 10px;
+        }
+        
+        .findings {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .findings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .finding-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .finding-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .finding-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 400px;
+            width: 100%;
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .recommendations {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .recommendations h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .recommendation-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f0f7ff;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .recommendation-item:before {
+            content: "→ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .metadata {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        .metadata-item {
+            margin-bottom: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .metadata-label {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        
+        .confidence-score {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(to right, #f39c12 0deg 226.8deg, #ddd 226.8deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: white;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .confidence-label {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .data-table th {
+            background: #f39c12;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .data-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .severity-low { color: #27ae60; }
+        .severity-moderate { color: #f39c12; }
+        .severity-high { color: #e74c3c; }
+        .severity-critical { color: #c0392b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚠️ Lineament Fracture Analysis</h1>
+            <div class="location-info">
+                📍 19.0896° N, 72.9250° E
+            </div>
+            <div class="severity-badge">
+                Severity: MODERATE
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- Left Column: Findings -->
+            <div>
+                <div class="section">
+                    <h2>📊 Key Findings</h2>
+                    <div class="confidence-score" style="background: conic-gradient(to right, #f39c12 0deg, #f39c12 226.8deg, #ddd 226.8deg);"></div>
+                    <div class="confidence-label">Confidence: 63%</div>
+                    <div class="findings-grid">
+
+                    <div class="finding-item">
+                        <div class="finding-label">Lineament Density Km Per Km2</div>
+                        <div class="finding-value">{'value': np.float64(0.7162), 'uncertain</div>
+                    </div>
+
+                    <div class="finding-item">
+                        <div class="finding-label">Fracture Class</div>
+                        <div class="finding-value">sheet_jointing</div>
+                    </div>
+
+                    <div class="finding-item">
+                        <div class="finding-label">Dominant Strike</div>
+                        <div class="finding-value">N-S</div>
+                    </div>
+
+                    <div class="finding-item">
+                        <div class="finding-label">Dominant Dip Degrees</div>
+                        <div class="finding-value">65</div>
+                    </div>
+
+                    <div class="finding-item">
+                        <div class="finding-label">Transmissivity Mean M2Day</div>
+                        <div class="finding-value">37.30</div>
+                    </div>
+
+                    <div class="finding-item">
+                        <div class="finding-label">Transmissivity Range M2Day</div>
+                        <div class="finding-value">(np.float64(6.8), np.float64(67.9))</div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Map -->
+            <div>
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recommendations Section -->
+        <div style="padding: 0 40px;">
+            <div class="section">
+                <h2>💡 Recommendations</h2>
+                <div class="recommendations">
+                    <div class="recommendation-item">Low fracture density: Limited groundwater availability</div>
+                    <div class="recommendation-item">Require careful site selection; test drilling strongly recommended</div>
+                    <div class="recommendation-item">Drill orientation: perpendicular to dominant lineaments for maximum fracture intersection</div>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- Metadata Section -->
+        <div style="padding: 40px;">
+            <div class="section">
+                <h2>📋 Methodology & Data Sources</h2>
+                <div class="metadata">
+                    <div class="metadata-item">
+                        <span class="metadata-label">Analysis Type:</span> lineament_fracture_analysis
+                    </div>
+                    <div class="metadata-item">
+                        <span class="metadata-label">Methodology:</span> DEM-based edge detection (Sobel + Laplacian) + GSI fracture pattern classification
+                    </div>
+                    <div class="metadata-item">
+                        <span class="metadata-label">Data Sources:</span> USGS SRTM DEM, Bhuvan Lineament Maps, GSI Structural Geology
+                    </div>
+                    <div class="metadata-item">
+                        <span class="metadata-label">Report Generated:</span> 2026-01-31T10:04:04.237695
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 Kalhan - Groundwater Resource Analysis Platform</p>
+            <p>MNC-Level Geospatial Analysis for Urban Water Resources</p>
+            <p>For urban apartments and real estate development in India</p>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize map with safe data injection
+        var mapConfig = {"lat": 19.0896, "lon": 72.925, "zoom": 13};
+        var map = L.map('map').setView([mapConfig.lat, mapConfig.lon], mapConfig.zoom);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+        
+        // Add marker with safe color injection
+        var markerConfig = {"color": "#f39c12", "analysisType": "Lineament_Fracture_Analysis"};
+        L.circleMarker([mapConfig.lat, mapConfig.lon], {
+            radius: 12,
+            fillColor: markerConfig.color,
+            color: '#333',
+            weight: 3,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(map).bindPopup('<strong>' + markerConfig.analysisType + '</strong><br>Analysis Location');
+        
+        // Make map responsive
+        window.addEventListener('resize', function() {
+            map.invalidateSize();
+        });
+    </script>
+</body>
+</html>

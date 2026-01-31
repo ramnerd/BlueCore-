@@ -1,0 +1,49 @@
+{
+  "analysis_type": "rainfall_analysis",
+  "location": {
+    "latitude": 19.0896,
+    "longitude": 72.925
+  },
+  "timestamp": "2026-01-31T10:03:25.382154",
+  "confidence_score": 0.93,
+  "severity_level": "favorable",
+  "key_findings": {
+    "annual_average_mm": {
+      "value": 2270,
+      "uncertainty": 75.0,
+      "lower_bound": 2195.0,
+      "upper_bound": 2345.0,
+      "confidence_level": 0.68,
+      "unit": "mm"
+    },
+    "annual_std_dev_mm": 0.0,
+    "coefficient_of_variation": 0.0,
+    "monsoon_rainfall_mm": 1276.9,
+    "monsoon_rainfall_fraction": 0.56,
+    "post_monsoon_rainfall_mm": 340.5,
+    "dry_season_rainfall_mm": 652.6,
+    "trend_mm_per_year": 0.0,
+    "recharge_potential_mm": 362.0,
+    "rainfall_reliability_index": 1.0,
+    "years_below_80_percent_normal": 0,
+    "years_above_120_percent_normal": 0,
+    "data_source": "IMD Reference - Mumbai",
+    "analysis_period_years": 10
+  },
+  "recommendations": [
+    "High rainfall region - strong groundwater recharge potential",
+    "Implement comprehensive rainwater harvesting for water security",
+    "Stable rainfall pattern - reliable for planning (CV=0.00)",
+    "High reliability (100%) - rainfall generally predictable",
+    "Rainfall stable over analysis period",
+    "Monsoon recharge potential: 362mm/year",
+    "Excellent recharge - design groundwater structures to capture monsoon excess"
+  ],
+  "methodology": "Location-based rainfall modeling with monsoon pattern analysis and trend computation",
+  "data_sources": [
+    "IMD Climate Data",
+    "NOAA CPC",
+    "Computed Spatial Patterns",
+    "Validation Data"
+  ]
+}
