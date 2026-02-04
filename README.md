@@ -1,10 +1,5 @@
 # Project Kalhan: Multi-Model Computational Framework for Urban Groundwater Potential Assessment in India
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Research Status](https://img.shields.io/badge/Status-Active-green.svg)]()
-[![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)]()
-
 ## Abstract
 
 Urban groundwater sustainability in India faces critical challenges from rapid urbanization, unregulated extraction, and climate variability. Existing approaches for groundwater assessment suffer from three fundamental limitations: (1) reliance on sparse, localized field measurements that fail to capture spatial heterogeneity, (2) dependence on single-parameter analyses that ignore the multivariate nature of hydrogeological systems, and (3) absence of standardized, reproducible methodologies for comparative assessment across diverse urban contexts.
