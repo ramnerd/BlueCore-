@@ -1,4 +1,5 @@
 # Project Kalhan: Multi-Model Computational Framework for Urban Groundwater Potential Assessment in India
+<img width="1792" height="642" alt="image" src="https://github.com/user-attachments/assets/6bbbdb50-2797-40e6-a9f4-a3634742ce6d" />
 
 ## Abstract
 
@@ -34,6 +35,7 @@ The methodology has been successfully validated across diverse urban contexts in
 ---
 
 ## Introduction
+<img width="926" height="852" alt="image" src="https://github.com/user-attachments/assets/556be9d7-b17f-4f59-aa6f-b8497784dbde" />
 
 ### Background and Motivation
 
